@@ -1,0 +1,29 @@
+.searchInput{
+    width: 100%;
+    background: rgb(59, 44, 44);
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    /* color: white; */
+}
+.input{
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+    /* color: white; */
+    /* font-size: 14px; */
+    /* color: white; */
+}
+input:focus 
+{
+    color: white;
+    /* font-family: 'Silkscreen', cursive; */
+    /* font-size: 20px; */
+}
+
+input, select, textarea{
+    color: white;
+    font-family: 'Silkscreen', cursive;
+    /* font-size: 20px; */
+}

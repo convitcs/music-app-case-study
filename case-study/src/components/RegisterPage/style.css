@@ -1,0 +1,56 @@
+h1{
+    font-family: 'Silkscreen', cursive;
+    justify-content: center;   
+    text-align: center;
+    font-size: 50px;
+}
+label{
+    font-family: 'Silkscreen', cursive;
+    font-size: 30px;
+    display: swap;
+    color: pink;
+}
+/* textarea:focus  */
+input{
+    width: 90%;
+    background: white;
+    /* margin-top: 20px; */
+}
+input:focus 
+{
+    color: black;
+    font-family: 'Silkscreen', cursive;
+    font-size: 20px;
+}
+
+input, select, textarea{
+    color: black;
+    font-family: 'Silkscreen', cursive;
+    font-size: 20px;
+}
+.button button{
+    width: 50%;
+    margin: 1px auto;
+    font-family: 'Silkscreen', cursive;
+    font-size: 30px;
+    color: pink;
+    background-color: gray;
+    border-radius: 30px;
+    border: none;
+    
+}
+.button{
+    text-align: center;
+}
+.registerAlert{
+    /* display: none; */
+    /* width: 100px;
+    height: 100px;
+    background: white; */
+}
+.active{
+    display: block;
+}
+a{
+    color: rgb(92, 130, 253);
+}

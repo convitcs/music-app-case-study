@@ -1,0 +1,20 @@
+.welcome{
+    margin: 5px auto;
+    width: 70%;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    transition:  height 2s;
+    /* height: auto; */
+    background: pink;
+    text-align: center;
+    color: black;
+    font-weight: 700;
+    width: 360px;
+    height: 0px;
+    /* position: relative;
+    top: -10px; */
+    overflow: hidden;
+}
+.active{
+    height: 30px;
+}

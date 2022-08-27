@@ -1,0 +1,42 @@
+.audio-ls{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: black;
+}
+.audio-img{
+    width: 50px;
+    height: 50px;
+    border-radius: 100rem;
+    background: red;
+    display: block;
+}
+
+.audio-img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 100rem;
+}
+
+input{
+    background: transparent;
+}
+
+.uploadWrapper{
+    width: 65px;
+    height: 65px;
+    border-radius: 100rem;
+    background: rgb(126, 142, 163);
+    font-size: 50px;
+    color: pink;
+    text-align: center;
+    /* text-justify: center; */
+    right: 0;
+    position: fixed;
+    display: block;
+    font-weight: 700;
+    bottom: 10%;
+    margin-right: 30px;
+}
