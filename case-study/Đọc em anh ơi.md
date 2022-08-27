@@ -1,0 +1,2 @@
+- chạy mobie chọn Pixel 5
+- chạy local host 9000 để app chạy được :>
