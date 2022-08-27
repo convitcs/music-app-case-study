@@ -3,24 +3,23 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import "./style.css";
 
 const Register = () => {
-    const MESSAGE_ERROR = {
-        username: "Username error",
-        email: "Email error",
-        password: "Password error",
-        confirmPassword: "Password must be the same"
-    };
-    const REGEX = {
-        username: /^[a-zA-Z]{2,}$/,
-        email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-        password: /^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]{6,}$/
-    };  
-
+  const MESSAGE_ERROR = {
+    username: "Username error",
+    email: "Email error",
+    password: "Password error",
+    confirmPassword: "Password must be the same",
+  };
+  const REGEX = {
+    username: /^[a-zA-Z]{2,}$/,
+    email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+    password: /^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]{6,}$/,
+  };
 
   const [form, setForm] = useState({});
-  const [regis, setRegis] = useState(-1)
+  const [regis, setRegis] = useState(-1);
 
   function handleChange(event) {
-  let error = "";
+    let error = "";
     if (event.target.name === "password") {
       if (form.confirmPassword && form.confirmPassword.value) {
         error =
@@ -44,7 +43,7 @@ const Register = () => {
     }
     setForm({
       ...form,
-      [event.target.name]: { value: event.target.value, error: error }
+      [event.target.name]: { value: event.target.value, error: error },
     });
   }
 
@@ -66,20 +65,20 @@ const Register = () => {
         form.confirmPassword.error);
 
     if (isFilled && !isError) {
-        setRegis(1)
+      setRegis(1);
     } else {
-        setRegis(0)
+      setRegis(0);
     }
   }
 
   return (
     <div>
-       <h1>Sign up</h1>
+      <h1>Sign up</h1>
       <form>
         <div
-          className={`custom-input ${form.username &&
-            form.username.error &&
-            "custom-input-error"}
+          className={`custom-input ${
+            form.username && form.username.error && "custom-input-error"
+          }
             m-10 p-5`}
         >
           <label>Username </label>
@@ -93,9 +92,9 @@ const Register = () => {
           )}
         </div>
         <div
-          className={`custom-input ${form.email &&
-            form.email.error &&
-            "custom-input-error"}
+          className={`custom-input ${
+            form.email && form.email.error && "custom-input-error"
+          }
             m-10 p-5`}
         >
           <label>Email </label>
@@ -109,9 +108,9 @@ const Register = () => {
           )}
         </div>
         <div
-          className={`custom-input ${form.password &&
-            form.password.error &&
-            "custom-input-error"} m-10 p-5`}
+          className={`custom-input ${
+            form.password && form.password.error && "custom-input-error"
+          } m-10 p-5`}
         >
           <label>Password </label>
           <input
@@ -125,9 +124,11 @@ const Register = () => {
           )}
         </div>
         <div
-          className={`custom-input ${form.confirmPassword &&
+          className={`custom-input ${
+            form.confirmPassword &&
             form.confirmPassword.error &&
-            "custom-input-error"} m-10 p-5`}
+            "custom-input-error"
+          } m-10 p-5`}
         >
           <label>Confirm password </label>
           <input
@@ -141,24 +142,23 @@ const Register = () => {
           )}
         </div>
         <div className="button mtb-20">
-        <button type="button" onClick={handleSubmit}>
-          Submit
-        </button>
+          <button type="button" onClick={handleSubmit}>
+            Submit
+          </button>
         </div>
         <div className={`registerAlert`}>
-            {regis == 1 ? 
+          {regis == 1 ? (
             <div>
-                <p>Regis success</p>
-                <Link to="/login">Click here to log in</Link>
+              <p>Regis success</p>
+              <Link to="/login">Click here to log in</Link>
             </div>
-            :
-                regis==0 ? 
-                <div>
-                    <p>Please fill out all the fields!!!</p>
-                </div>
-                :
-                ""
-            }
+          ) : regis == 0 ? (
+            <div>
+              <p>Please fill out all the fields!!!</p>
+            </div>
+          ) : (
+            ""
+          )}
         </div>
       </form>
     </div>

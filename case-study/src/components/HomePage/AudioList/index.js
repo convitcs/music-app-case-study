@@ -22,18 +22,15 @@ const AudioList = ({
     alert("function is under development");
   };
   const [searchParams, setSearchParams] = useSearchParams();
-  
-  useEffect(()=>{
+
+  useEffect(() => {
     if (type === "justlisten") {
       setCurrentAudioList(historyList);
       setHistory(true);
     } else setHistory(false);
-  })
-
-
+  });
 
   return (
-    
     <div className="audio-ls">
       <div className="audio-ls-header m-10">
         <img

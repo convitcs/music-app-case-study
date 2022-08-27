@@ -2,18 +2,18 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
 
-const  Login = () => {
-const [login,setLogin] = useState(-1)
-const nevigate = useNavigate()
+const Login = () => {
+  const [login, setLogin] = useState(-1);
+  const nevigate = useNavigate();
 
   const MESSAGE_ERROR = {
     email: "Email error",
-    password: "Password error"
+    password: "Password error",
   };
 
   const REGEX = {
     email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-    password: /^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]{6,}$/
+    password: /^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]{6,}$/,
   };
 
   const [form, setForm] = useState({});
@@ -24,21 +24,21 @@ const nevigate = useNavigate()
       : MESSAGE_ERROR[event.target.name];
     setForm({
       ...form,
-      [event.target.name]: { value: event.target.value, error: error }
+      [event.target.name]: { value: event.target.value, error: error },
     });
   }
 
   function handleSubmit(event) {
-    console.log({form})
+    console.log({ form });
     const isFilled =
       form.email && form.email.value && form.password && form.password.value;
     const isError = isFilled && (form.email.error || form.password.error);
-    
-    const user = (form.email.value === "hcminhqn@gmail.com") && (form.password.value === "MinhMinh")
-    console.log("user ne ba:"+user)
-    isFilled && !isError && user
-        ? setLogin(1)
-        : setLogin(0)
+
+    const user =
+      form.email.value === "hcminhqn@gmail.com" &&
+      form.password.value === "MinhMinh";
+    console.log("user ne ba:" + user);
+    isFilled && !isError && user ? setLogin(1) : setLogin(0);
   }
 
   return (
@@ -46,9 +46,9 @@ const nevigate = useNavigate()
       <h1>Login</h1>
       <form>
         <div
-          className={`custom-input ${form.email &&
-            form.email.error &&
-            "custom-input-error"}`}
+          className={`custom-input ${
+            form.email && form.email.error && "custom-input-error"
+          }`}
         >
           <label>Email </label>
           <input
@@ -61,9 +61,9 @@ const nevigate = useNavigate()
           )}
         </div>
         <div
-          className={`custom-input ${form.password &&
-            form.password.error &&
-            "custom-input-error"}`}
+          className={`custom-input ${
+            form.password && form.password.error && "custom-input-error"
+          }`}
         >
           <label>Password </label>
           <input
@@ -77,29 +77,28 @@ const nevigate = useNavigate()
           )}
         </div>
         <div className="button">
-            <button className="button" type="button" onClick={handleSubmit}>
+          <button className="button" type="button" onClick={handleSubmit}>
             Submit
-            </button>
+          </button>
         </div>
         <div className={`registerAlert`}>
-            {login == 1 ? 
+          {login == 1 ? (
             <div>
-                <p>Login success</p>
-                <p>We are getting you in...</p>
-                {setTimeout(nevigate('/homePage'),10000)}
+              <p>Login success</p>
+              <p>We are getting you in...</p>
+              {setTimeout(nevigate("/homePage"), 10000)}
             </div>
-            :
-                login==0 ? 
-                <div>
-                    <p>Login failed!!!</p>
-                </div>
-                :
-                ""
-            }
+          ) : login == 0 ? (
+            <div>
+              <p>Login failed!!!</p>
+            </div>
+          ) : (
+            ""
+          )}
         </div>
       </form>
     </div>
   );
-}
+};
 
-export default Login
+export default Login;

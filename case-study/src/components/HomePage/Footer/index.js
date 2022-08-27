@@ -42,9 +42,9 @@ const Footer = ({ trackIndex, audioList }) => {
   }, [currentTrackIndex]);
   // console.log({audioRef})
 
-  useEffect(() =>{
-    setCurrentTrackIndex(trackIndex)
-  },[trackIndex])
+  useEffect(() => {
+    setCurrentTrackIndex(trackIndex);
+  }, [trackIndex]);
 
   useEffect(() => {
     if (isPlaying) {
@@ -66,21 +66,32 @@ const Footer = ({ trackIndex, audioList }) => {
 
   const nextTrack = () => {
     // console.log('co bam next roi ne')
-    if (currentTrackIndex == audioList.length-1){return setCurrentTrackIndex(0);console.log("dong nay hien ra la bai cuoi")}
-    setCurrentTrackIndex(currentTrackIndex+1)
-  }
+    if (currentTrackIndex == audioList.length - 1) {
+      return setCurrentTrackIndex(0);
+      console.log("dong nay hien ra la bai cuoi");
+    }
+    setCurrentTrackIndex(currentTrackIndex + 1);
+  };
 
   const previousTrack = () => {
-    if (currentTrackIndex == 0){return setCurrentTrackIndex(audioList.length-1);console.log("dong nay hien ra la bai cuoi")}
-    setCurrentTrackIndex(currentTrackIndex-1)
-
-  }
+    if (currentTrackIndex == 0) {
+      return setCurrentTrackIndex(audioList.length - 1);
+      console.log("dong nay hien ra la bai cuoi");
+    }
+    setCurrentTrackIndex(currentTrackIndex - 1);
+  };
   return (
-    <div className={`footer ${currentTrackIndex !== -1 ? "choosed" : ""} ${slideUp ? "active" : ""} `}>
+    <div
+      className={`footer ${currentTrackIndex !== -1 ? "choosed" : ""} ${
+        slideUp ? "active" : ""
+      } `}
+    >
       <div
         className="slide-up-button align-center"
-        onClick={() => {if (currentTrackIndex === -1){}
-                    else setSlideUp(!slideUp)}}
+        onClick={() => {
+          if (currentTrackIndex === -1) {
+          } else setSlideUp(!slideUp);
+        }}
       ></div>
 
       {slideUp && (
@@ -102,38 +113,40 @@ const Footer = ({ trackIndex, audioList }) => {
         <>
           {/* {console.log({ trackIndex })} */}
           <div className="mini-player flex justify-sb">
-          {currentTrackIndex !== -1 && (
-            <>
-              <div className="flex align-center">
-                <div className="cover-img">
-                  <img src={`${baseUrl}/${avatar}`} alt="" className="avatar" />
+            {currentTrackIndex !== -1 && (
+              <>
+                <div className="flex align-center">
+                  <div className="cover-img">
+                    <img
+                      src={`${baseUrl}/${avatar}`}
+                      alt=""
+                      className="avatar"
+                    />
+                  </div>
+                  <div className="mini-player-info mlr-5">
+                    <p>{title} </p>
+                    <p>{artist}</p>
+                  </div>
                 </div>
-                <div className="mini-player-info mlr-5">
-                  <p>{title} </p>
-                  <p>{artist}</p>
+                <div className="control-button flex">
+                  <button onClick={() => setIsPlaying(!isPlaying)}>
+                    {!isPlaying ? (
+                      <img src={pauseGreyIcon} alt=""></img>
+                    ) : (
+                      <img src={playGreyIcon} alt=""></img>
+                    )}
+                  </button>
+                  <button
+                    onClick={() => {
+                      // audioRef.current.pause();
+                      setCurrentTrackIndex(-1);
+                    }}
+                  >
+                    <img src={closeIcon}></img>
+                  </button>
                 </div>
-              </div>
-              <div className="control-button flex">
-                <button
-                  onClick={() => setIsPlaying(!isPlaying)}
-                >
-                  {!isPlaying ? (
-                    <img src={pauseGreyIcon} alt=""></img>
-                  ) : (
-                    <img src={playGreyIcon} alt=""></img>
-                  )}
-                </button>
-                <button
-                  onClick={() => {
-                    // audioRef.current.pause();
-                    setCurrentTrackIndex(-1)
-                  }}
-                >
-                  <img src={closeIcon}></img>
-                </button>
-              </div>
-            </>
-          )}
+              </>
+            )}
           </div>
 
           {/* <div className="navigation-menu flex justify-evenly">
